@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jet4 | Premium Inter-State Transport</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons for professional, lightweight SVG iconography -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #F8FAFC;
+            /* Tailwind slate-50 */
+        }
+
+        /* Custom form overrides for crisp, flat design */
+        input[type="date"]::-webkit-calendar-picker-indicator {
+            cursor: pointer;
+            opacity: 0.6;
+            transition: 0.2s;
+        }
+
+        input[type="date"]::-webkit-calendar-picker-indicator:hover {
+            opacity: 1;
+        }
+
+        /* Strict flat design utility */
+        .sharp-element {
+            border-radius: 0px !important;
+        }
+    </style>
+</head>
+
+<body class="text-slate-900 antialiased selection:bg-teal-400 selection:text-slate-900">
+
+    <!-- Top Bar (Contact & Support) -->
+    <div class="bg-slate-900 text-slate-300 text-xs py-2 px-6 hidden md:block">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <div class="flex space-x-6">
+                <span class="flex items-center gap-2"><i data-lucide="phone" class="w-3 h-3"></i> +234 (0) 800 JET4
+                    HELP</span>
+                <span class="flex items-center gap-2"><i data-lucide="mail" class="w-3 h-3"></i>
+                    support@jet4.com.ng</span>
+            </div>
+            <div class="flex space-x-4">
+                <a href="#" class="hover:text-teal-400 transition-colors">Terminals</a>
+                <a href="#" class="hover:text-teal-400 transition-colors">Track Trip</a>
+                <a href="#" class="hover:text-teal-400 transition-colors">Manage Booking</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Navigation -->
+    <nav class="bg-white border-b border-slate-200 px-6 py-4 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <!-- Logo -->
+            <a href="/" class="text-3xl font-extrabold tracking-tight text-slate-900">
+                JET<span class="text-teal-500">4</span>
+            </a>
+
+            <!-- Desktop Links -->
+            <div class="hidden lg:flex space-x-8 items-center font-semibold text-sm text-slate-600">
+                <a href="#" class="text-slate-900">Home</a>
+                <a href="#" class="hover:text-slate-900 transition-colors">About Us</a>
+                <a href="#" class="hover:text-slate-900 transition-colors">Charter Services</a>
+                <a href="#" class="hover:text-slate-900 transition-colors">Logistics</a>
+            </div>
+
+            <!-- Auth Buttons -->
+            <div class="hidden md:flex space-x-4 items-center">
+                <a href="#" class="text-sm font-bold text-slate-900 hover:text-teal-600 transition-colors">Sign In</a>
+                <a href="#"
+                    class="bg-teal-500 text-slate-900 text-sm font-bold px-5 py-2.5 sharp-element hover:bg-teal-400 transition-colors flex items-center gap-2">
+                    Create Account
+                </a>
+            </div>
+
+            <!-- Mobile Menu Toggle -->
+            <button class="lg:hidden text-slate-900">
+                <i data-lucide="menu" class="w-6 h-6"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero & Booking Engine Section -->
+    <header class="bg-slate-900 text-white relative pt-16 pb-32">
+        <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center relative z-10">
+
+            <!-- Hero Copy -->
+            <div>
+                <div
+                    class="inline-flex items-center gap-2 px-3 py-1 bg-slate-800 text-teal-400 text-xs font-bold uppercase tracking-wider mb-6 sharp-element border border-slate-700">
+                    <span class="w-2 h-2 rounded-full bg-teal-400 animate-pulse"></span>
+                    Now Boarding: Lagos to Abuja
+                </div>
+                <h1 class="text-5xl lg:text-6xl font-extrabold leading-[1.1] mb-6 tracking-tight">
+                    Premium <span class="text-teal-500">Inter-State</span> Travel Without the Hassle.
+                </h1>
+                <p class="text-lg text-slate-400 font-medium mb-8 max-w-lg leading-relaxed">
+                    Book your seat on our fully air-conditioned, high-security fleet. Experience punctual departures
+                    from Lagos, Abuja, Port Harcourt, and across Nigeria.
+                </p>
+                <div class="flex items-center gap-6">
+                    <div class="flex -space-x-3">
+                        <img class="w-10 h-10 rounded-full border-2 border-slate-900"
+                            src="https://i.pravatar.cc/100?img=33" alt="Passenger">
+                        <img class="w-10 h-10 rounded-full border-2 border-slate-900"
+                            src="https://i.pravatar.cc/100?img=47" alt="Passenger">
+                        <img class="w-10 h-10 rounded-full border-2 border-slate-900"
+                            src="https://i.pravatar.cc/100?img=12" alt="Passenger">
+                    </div>
+                    <div class="text-sm font-medium text-slate-300">
+                        Join <span class="text-white font-bold">10,000+</span> daily passengers.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Booking Widget (Form ready for backend binding) -->
+            <div class="bg-white text-slate-900 sharp-element p-1 shadow-2xl">
+                <div class="border border-slate-200 p-6 md:p-8">
+
+                    <!-- Trip Type Tabs -->
+                    <div class="flex border-b border-slate-200 mb-6">
+                        <button class="pb-3 px-4 font-bold text-slate-900 border-b-2 border-teal-500">One Way</button>
+                        <button class="pb-3 px-4 font-bold text-slate-400 hover:text-slate-900 transition-colors">Round
+                            Trip</button>
+                    </div>
+
+                    <form action="/api/trips/search" method="GET" class="space-y-5">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                            <!-- Departure -->
+                            <div class="space-y-1.5">
+                                <label for="departure_id"
+                                    class="text-xs font-bold uppercase tracking-wide text-slate-500">Leaving
+                                    From</label>
+                                <div class="relative">
+                                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                        <i data-lucide="map-pin" class="w-5 h-5 text-slate-400"></i>
+                                    </div>
+                                    <select id="departure_id" name="departure_id" required
+                                        class="block w-full pl-10 pr-3 py-3 border border-slate-200 bg-slate-50 text-slate-900 font-semibold focus:outline-none focus:ring-0 focus:border-teal-500 focus:bg-white sharp-element transition-colors appearance-none">
+                                        <option value="" disabled selected>Select Terminal</option>
+                                        <option value="1">Lagos (Jibowu)</option>
+                                        <option value="2">Lagos (Oshodi)</option>
+                                        <option value="3">Abuja (Utako)</option>
+                                        <option value="4">Rivers (Waterlines)</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <!-- Arrival -->
+                            <div class="space-y-1.5">
+                                <label for="arrival_id"
+                                    class="text-xs font-bold uppercase tracking-wide text-slate-500">Going To</label>
+                                <div class="relative">
+                                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                        <i data-lucide="navigation" class="w-5 h-5 text-slate-400"></i>
+                                    </div>
+                                    <select id="arrival_id" name="arrival_id" required
+                                        class="block w-full pl-10 pr-3 py-3 border border-slate-200 bg-slate-50 text-slate-900 font-semibold focus:outline-none focus:ring-0 focus:border-teal-500 focus:bg-white sharp-element transition-colors appearance-none">
+                                        <option value="" disabled selected>Select Terminal</option>
+                                        <option value="3">Abuja (Utako)</option>
+                                        <option value="1">Lagos (Jibowu)</option>
+                                        <option value="5">Kano (Sabon Gari)</option>
+                                        <option value="6">Enugu (Holy Ghost)</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                            <!-- Travel Date -->
+                            <div class="space-y-1.5">
+                                <label for="travel_date"
+                                    class="text-xs font-bold uppercase tracking-wide text-slate-500">Departure
+                                    Date</label>
+                                <div class="relative">
+                                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                        <i data-lucide="calendar" class="w-5 h-5 text-slate-400"></i>
+                                    </div>
+                                    <input type="date" id="travel_date" name="travel_date" required
+                                        class="block w-full pl-10 pr-3 py-3 border border-slate-200 bg-slate-50 text-slate-900 font-semibold focus:outline-none focus:ring-0 focus:border-teal-500 focus:bg-white sharp-element transition-colors">
+                                </div>
+                            </div>
+
+                            <!-- Passengers -->
+                            <div class="space-y-1.5">
+                                <label for="passengers"
+                                    class="text-xs font-bold uppercase tracking-wide text-slate-500">Passengers</label>
+                                <div class="relative">
+                                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                        <i data-lucide="users" class="w-5 h-5 text-slate-400"></i>
+                                    </div>
+                                    <input type="number" id="passengers" name="passengers" min="1" max="10" value="1"
+                                        required
+                                        class="block w-full pl-10 pr-3 py-3 border border-slate-200 bg-slate-50 text-slate-900 font-semibold focus:outline-none focus:ring-0 focus:border-teal-500 focus:bg-white sharp-element transition-colors">
+                                </div>
+                            </div>
+                        </div>
+
+                        <button type="submit"
+                            class="w-full bg-slate-900 text-white text-lg font-bold py-4 sharp-element hover:bg-teal-500 hover:text-slate-900 transition-colors mt-2 flex justify-center items-center gap-2">
+                            Search Available Buses <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Background geometric decorative element instead of gradient -->
+        <div
+            class="absolute bottom-0 right-0 w-1/2 h-1/2 bg-slate-800 opacity-20 transform -skew-y-6 translate-y-20 -z-0">
+        </div>
+    </header>
+
+    <!-- Trust / Features Section -->
+    <section class="max-w-7xl mx-auto px-6 py-16 -mt-16 relative z-20">
+        <div class="grid md:grid-cols-3 gap-6">
+            <!-- Feature 1 -->
+            <div
+                class="bg-white border border-slate-200 p-8 sharp-element flex flex-col items-start hover:border-teal-500 transition-colors group">
+                <div class="bg-slate-50 p-3 mb-6 sharp-element group-hover:bg-teal-100 transition-colors">
+                    <i data-lucide="shield-check" class="w-8 h-8 text-slate-900"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-3 text-slate-900">Guaranteed Security</h3>
+                <p class="text-slate-600 text-sm leading-relaxed">Every inter-state trip is tracked in real-time.
+                    High-risk routes are accompanied by armed mobile police escorts.</p>
+            </div>
+            <!-- Feature 2 -->
+            <div
+                class="bg-white border border-slate-200 p-8 sharp-element flex flex-col items-start hover:border-teal-500 transition-colors group">
+                <div class="bg-slate-50 p-3 mb-6 sharp-element group-hover:bg-teal-100 transition-colors">
+                    <i data-lucide="armchair" class="w-8 h-8 text-slate-900"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-3 text-slate-900">Captain Seats</h3>
+                <p class="text-slate-600 text-sm leading-relaxed">Travel like a VIP. Our modern fleet features extra
+                    legroom, reclining captain seats, and full climate control.</p>
+            </div>
+            <!-- Feature 3 -->
+            <div
+                class="bg-white border border-slate-200 p-8 sharp-element flex flex-col items-start hover:border-teal-500 transition-colors group">
+                <div class="bg-slate-50 p-3 mb-6 sharp-element group-hover:bg-teal-100 transition-colors">
+                    <i data-lucide="clock" class="w-8 h-8 text-slate-900"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-3 text-slate-900">Punctual Departures</h3>
+                <p class="text-slate-600 text-sm leading-relaxed">No waiting for the bus to get full. We operate on a
+                    strict, scheduled manifest system to respect your time.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Popular Routes Section -->
+    <section class="bg-white border-t border-slate-200 py-20">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex justify-between items-end mb-10">
+                <div>
+                    <h2 class="text-3xl font-extrabold text-slate-900 mb-2">Popular Routes</h2>
+                    <p class="text-slate-500 font-medium">Frequently booked journeys across Nigeria.</p>
+                </div>
+                <a href="#" class="hidden md:flex items-center gap-1 font-bold text-teal-600 hover:text-teal-700">View
+                    all routes <i data-lucide="chevron-right" class="w-4 h-4"></i></a>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Route Card 1 -->
+                <div
+                    class="border border-slate-200 sharp-element group cursor-pointer hover:border-slate-400 transition-colors">
+                    <div class="h-32 bg-slate-100 relative overflow-hidden">
+                        <!-- Abstract solid pattern replacement for image -->
+                        <div class="absolute inset-0 bg-slate-800"></div>
+                        <div class="absolute inset-0 opacity-20"
+                            style="background-image: radial-gradient(circle at 2px 2px, white 1px, transparent 0); background-size: 16px 16px;">
+                        </div>
+                        <div
+                            class="absolute bottom-3 left-3 bg-teal-500 text-slate-900 text-xs font-bold px-2 py-1 sharp-element">
+                            12 hrs</div>
+                    </div>
+                    <div class="p-5">
+                        <div class="flex items-center gap-2 text-slate-400 text-sm font-bold mb-2 uppercase">
+                            <span class="text-slate-900">Lagos</span> <i data-lucide="arrow-right" class="w-3 h-3"></i>
+                            <span class="text-slate-900">Abuja</span>
+                        </div>
+                        <div class="text-2xl font-extrabold text-slate-900 mb-1">₦35,500</div>
+                        <div class="text-sm text-slate-500">Multiple departures daily</div>
+                    </div>
+                </div>
+
+                <!-- Route Card 2 -->
+                <div
+                    class="border border-slate-200 sharp-element group cursor-pointer hover:border-slate-400 transition-colors">
+                    <div class="h-32 bg-slate-100 relative overflow-hidden">
+                        <div class="absolute inset-0 bg-slate-900"></div>
+                        <div class="absolute inset-0 opacity-20"
+                            style="background-image: radial-gradient(circle at 2px 2px, white 1px, transparent 0); background-size: 16px 16px;">
+                        </div>
+                        <div
+                            class="absolute bottom-3 left-3 bg-teal-500 text-slate-900 text-xs font-bold px-2 py-1 sharp-element">
+                            10 hrs</div>
+                    </div>
+                    <div class="p-5">
+                        <div class="flex items-center gap-2 text-slate-400 text-sm font-bold mb-2 uppercase">
+                            <span class="text-slate-900">Port Harcourt</span> <i data-lucide="arrow-right"
+                                class="w-3 h-3"></i> <span class="text-slate-900">Lagos</span>
+                        </div>
+                        <div class="text-2xl font-extrabold text-slate-900 mb-1">₦32,000</div>
+                        <div class="text-sm text-slate-500">Morning & Night trips</div>
+                    </div>
+                </div>
+
+                <!-- Route Card 3 -->
+                <div
+                    class="border border-slate-200 sharp-element group cursor-pointer hover:border-slate-400 transition-colors">
+                    <div class="h-32 bg-slate-100 relative overflow-hidden">
+                        <div class="absolute inset-0 bg-slate-800"></div>
+                        <div class="absolute inset-0 opacity-20"
+                            style="background-image: radial-gradient(circle at 2px 2px, white 1px, transparent 0); background-size: 16px 16px;">
+                        </div>
+                        <div
+                            class="absolute bottom-3 left-3 bg-teal-500 text-slate-900 text-xs font-bold px-2 py-1 sharp-element">
+                            14 hrs</div>
+                    </div>
+                    <div class="p-5">
+                        <div class="flex items-center gap-2 text-slate-400 text-sm font-bold mb-2 uppercase">
+                            <span class="text-slate-900">Lagos</span> <i data-lucide="arrow-right" class="w-3 h-3"></i>
+                            <span class="text-slate-900">Kano</span>
+                        </div>
+                        <div class="text-2xl font-extrabold text-slate-900 mb-1">₦40,000</div>
+                        <div class="text-sm text-slate-500">Daily morning dispatch</div>
+                    </div>
+                </div>
+
+                <!-- Route Card 4 -->
+                <div
+                    class="border border-slate-200 sharp-element group cursor-pointer hover:border-slate-400 transition-colors">
+                    <div class="h-32 bg-slate-100 relative overflow-hidden">
+                        <div class="absolute inset-0 bg-slate-900"></div>
+                        <div class="absolute inset-0 opacity-20"
+                            style="background-image: radial-gradient(circle at 2px 2px, white 1px, transparent 0); background-size: 16px 16px;">
+                        </div>
+                        <div
+                            class="absolute bottom-3 left-3 bg-teal-500 text-slate-900 text-xs font-bold px-2 py-1 sharp-element">
+                            8 hrs</div>
+                    </div>
+                    <div class="p-5">
+                        <div class="flex items-center gap-2 text-slate-400 text-sm font-bold mb-2 uppercase">
+                            <span class="text-slate-900">Abuja</span> <i data-lucide="arrow-right" class="w-3 h-3"></i>
+                            <span class="text-slate-900">Enugu</span>
+                        </div>
+                        <div class="text-2xl font-extrabold text-slate-900 mb-1">₦25,000</div>
+                        <div class="text-sm text-slate-500">2 departures daily</div>
+                    </div>
+                </div>
+            </div>
+
+            <a href="#"
+                class="md:hidden mt-6 block text-center font-bold text-teal-600 border border-teal-600 py-3 hover:bg-teal-50 transition-colors">View
+                all routes</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-slate-400 py-12 border-t-4 border-teal-500">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div>
+                <a href="/" class="text-2xl font-extrabold tracking-tight text-white block mb-4">
+                    JET<span class="text-teal-500">4</span>
+                </a>
+                <p class="text-sm mb-4 leading-relaxed">Redefining inter-state road transportation in Nigeria through
+                    technology, security, and absolute comfort.</p>
+                <div class="text-white font-bold">CAC Reg: RC-1234567</div>
+            </div>
+            <div>
+                <h4 class="text-white font-bold mb-4 uppercase text-sm tracking-wider">Company</h4>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="#" class="hover:text-teal-400 transition-colors">About Us</a></li>
+                    <li><a href="#" class="hover:text-teal-400 transition-colors">Careers</a></li>
+                    <li><a href="#" class="hover:text-teal-400 transition-colors">Terminals</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-white font-bold mb-4 uppercase text-sm tracking-wider">Services</h4>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="#" class="hover:text-teal-400 transition-colors">Passenger Travel</a></li>
+                    <li><a href="#" class="hover:text-teal-400 transition-colors">Bus Charter</a></li>
+                    <li><a href="#" class="hover:text-teal-400 transition-colors">Cargo & Logistics</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-white font-bold mb-4 uppercase text-sm tracking-wider">Legal</h4>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="#" class="hover:text-teal-400 transition-colors">Terms of Service</a></li>
+                    <li><a href="#" class="hover:text-teal-400 transition-colors">Privacy Policy</a></li>
+                    <li><a href="#" class="hover:text-teal-400 transition-colors">Baggage Policy</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-6 mt-12 pt-8 border-t border-slate-800 text-sm text-center">
+            &copy; 2026 Jet4 Transportation Limited. All rights reserved.
+        </div>
+    </footer>
+
+    <!-- Initialize Icons -->
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+
+</html>
