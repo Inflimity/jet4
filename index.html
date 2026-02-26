@@ -32,6 +32,33 @@
         .sharp-element {
             border-radius: 0px !important;
         }
+
+        /* Fade Animations */
+        .reveal-left,
+        .reveal-right,
+        .reveal-up {
+            opacity: 0;
+            transition: all 0.8s ease-out;
+        }
+
+        .reveal-left {
+            transform: translateX(-50px);
+        }
+
+        .reveal-right {
+            transform: translateX(50px);
+        }
+
+        .reveal-up {
+            transform: translateY(30px);
+        }
+
+        .reveal-left.active,
+        .reveal-right.active,
+        .reveal-up.active {
+            opacity: 1;
+            transform: translate(0);
+        }
     </style>
     <script>
         tailwind.config = {
@@ -107,7 +134,7 @@
         <div class="max-w-7xl mx-auto px-6 flex flex-col lg:grid lg:grid-cols-2 gap-12 items-center relative z-10">
 
             <!-- Hero Copy -->
-            <div class="flex flex-col gap-8 order-2 lg:order-1">
+            <div class="flex flex-col gap-8 order-2 lg:order-1 reveal-left">
                 <div>
                     <div
                         class="inline-flex items-center gap-2 px-3 py-1 bg-slate-800 text-teal-400 text-xs font-bold uppercase tracking-wider mb-6 sharp-element border border-slate-700">
@@ -184,7 +211,7 @@
 
             <!-- Hero Carousel (Visuals) -->
             <div
-                class="relative w-full h-[300px] lg:h-[600px] sharp-element overflow-hidden group shadow-2xl order-1 lg:order-2 bg-slate-900 flex items-center justify-center">
+                class="relative w-full h-[300px] lg:h-[600px] sharp-element overflow-hidden group shadow-2xl order-1 lg:order-2 bg-slate-900 flex items-center justify-center reveal-right">
 
                 <!-- Carousel Images (CSS Animated) -->
                 <div class="absolute inset-0 flex w-[300%] animate-[slide_20s_infinite]">
@@ -254,7 +281,7 @@
     </header>
 
     <!-- Trust / Features Section -->
-    <section class="max-w-7xl mx-auto px-6 py-16 -mt-16 relative z-20">
+    <section class="max-w-7xl mx-auto px-6 py-16 -mt-16 relative z-20 reveal-up">
         <div class="grid md:grid-cols-3 gap-6">
             <!-- Feature 1 -->
             <div
@@ -292,7 +319,7 @@
     <!-- Philosophy / About Section -->
     <section class="bg-slate-50 py-24 border-y border-slate-200">
         <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
-            <div>
+            <div class="reveal-left">
                 <div class="text-teal-600 font-bold uppercase tracking-widest text-xs mb-4">Our Philosophy</div>
                 <h2 class="text-3xl lg:text-5xl font-extrabold text-slate-900 mb-6 tracking-tight leading-tight">
                     Restoring dignity to <br> road travel.
@@ -310,7 +337,7 @@
                     Discover our story <i data-lucide="arrow-right" class="w-4 h-4"></i>
                 </a>
             </div>
-            <div class="relative h-[400px] bg-slate-200 sharp-element overflow-hidden group">
+            <div class="relative h-[400px] bg-slate-200 sharp-element overflow-hidden group reveal-right">
                 <div class="absolute inset-0 bg-slate-800 transition-transform duration-700 group-hover:scale-105">
                 </div>
                 <div class="absolute inset-0 opacity-20"
@@ -581,6 +608,29 @@
     <!-- Initialize Icons -->
     <script>
         lucide.createIcons();
+
+        // Scroll reveal animation
+        document.addEventListener('DOMContentLoaded', () => {
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.15
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                    } else {
+                        // Remove the class when element leaves view to fade out
+                        entry.target.classList.remove('active');
+                    }
+                });
+            }, observerOptions);
+
+            const elementsToReveal = document.querySelectorAll('.reveal-left, .reveal-right, .reveal-up');
+            elementsToReveal.forEach(el => observer.observe(el));
+        });
     </script>
 </body>
 
